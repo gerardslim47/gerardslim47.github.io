@@ -20,13 +20,6 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            <section id="upload-section">
-    <h3>Upload a Photo</h3>
-    <form>
-        <input type="file" id="photo-upload" accept="image/*">
-        <p id="status-message"></p>
-    </form>
-</section>
         }
         header {
             height: 60vh;
@@ -89,7 +82,13 @@
         <h2>Professional Profile</h2>
         <p>Dedicated ICT specialist with a strong academic background and technical expertise. I focus on optimizing digital infrastructure, maintaining hardware integrity, and providing seamless technical support.</p>
     </section>
-
+<section id="upload-section">
+    <h3>Upload a Photo</h3>
+    <form>
+        <input type="file" id="photo-upload" accept="image/*">
+        <p id="status-message"></p>
+    </form>
+</section>
     <section id="skills">
         <h2>Core Competencies</h2>
         <div class="skills-grid">
@@ -108,6 +107,23 @@
         <p><strong>GitHub:</strong> github.com/yourusername</p>
     </section>
 </div>
+<div class="upload-container">
+    <script>
+  const imageInput = document.getElementById('imageInput');
+  const output = document.getElementById('output');
 
+  imageInput.addEventListener('change', function(e) {
+    const reader = new FileReader();
+    
+    reader.onload = function() {
+      output.src = reader.result;
+      output.style.display = 'block'; // Show the image once loaded
+    };
+    
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  });
+    </script>
 </body>
 </html>
